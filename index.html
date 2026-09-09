@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mizuki Essen – Rezeptrechner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div>
+        <div class="eyebrow">MIZUKI ESSEN</div>
+        <h1>Rezeptrechner</h1>
+        <p>Rezepte, Zutaten, Einkaufskosten und Verkaufserlöse auf einen Blick.</p>
+      </div>
+    </header>
+
+    <section class="panel">
+      <label for="recipe">Rezept</label>
+      <select id="recipe"></select>
+
+      <label for="quantity">Menge</label>
+      <select id="quantity"></select>
+    </section>
+
+    <section class="panel">
+      <div class="section-title">Qualität / Verkaufspreis</div>
+      <div id="qualityButtons" class="quality-grid"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-title">Benötigte Zutaten</div>
+      <div id="ingredients" class="ingredients"></div>
+    </section>
+
+    <section class="results">
+      <div class="result"><span>Einkaufskosten</span><strong id="cost">$0</strong></div>
+      <div class="result"><span>Verkaufserlös</span><strong id="revenue">$0</strong></div>
+      <div class="result highlight"><span>Gewinn</span><strong id="profit">$0</strong></div>
+    </section>
+
+    <p id="discountInfo" class="discount"></p>
+    <p class="note">Mengenrabatt: 20× = 5%, 40× = 10%, 60× = 15%, 80× = 20%, ab 100× = 25%.</p>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
