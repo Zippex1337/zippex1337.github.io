@@ -11,7 +11,16 @@
 <div class="brand">Mizuki Essen</div><div class="subtitle">REZEPTRECHNER</div><div class="jp">美味しい食事</div>
 <p>Berechne Zutaten, Einkauf, Verkauf und Gewinn anhand deiner vorhandenen Qualitätsmengen.</p>
 </header>
-<section class="form-section"><label class="label" for="recipe">Rezept auswählen</label><select id="recipe"></select></section>
+<section class="form-section">
+<label class="label" for="recipe">Rezept auswählen</label>
+<select id="recipe"></select>
+<label class="label coop-label" for="coop">Coop</label>
+<select id="coop">
+<option value="none">Keine</option>
+<option value="doj">DOJ</option>
+<option value="lspd">LSPD</option>
+</select>
+</section>
 <section class="quality-section">
 <div class="section-title">Wie viele Gerichte hast du?</div>
 <div class="quality-grid">
@@ -27,7 +36,7 @@
 <div class="result-box"><h3>Kosten & Rabatt</h3>
 <div class="line"><span>Einkaufskosten</span><strong id="costBefore">$0</strong></div>
 <div class="line"><span>Verkaufsrabatt</span><strong id="discount">0 %</strong></div>
-<div class="line total-sale"><span>Verkauf nach Rabatt</span><strong id="revenue">$0</strong></div>
+<div class="line"><span>Verkauf nach Rabatt</span><strong id="revenue">$0</strong></div>
 </div>
 <div class="result-box"><h3>Verkauf nach Qualität</h3>
 <div class="line"><span>Grau (niedrig)</span><strong id="lowRevenue">$0</strong></div>
@@ -35,6 +44,7 @@
 <div class="line"><span>Lila / Gold (hoch)</span><strong id="highRevenue">$0</strong></div>
 <div class="line total-sale"><span>Gesamtverkauf</span><strong id="revenueTotal">$0</strong></div>
 </div></div>
+<div class="sale-highlight"><span>Verkaufspreis</span><strong id="revenueHighlight">$0</strong></div>
 <div class="profit-line"><span>Gesamtgewinn</span><strong id="profit">$0</strong></div>
 <p id="discountInfo" class="discount-info">Kein Mengenrabatt</p>
 </section>
