@@ -11,6 +11,7 @@ Ei $320
 Coop:
 Keine = normale Verkaufspreise
 DOJ und LSPD:
+Grau = normale Preise.
 Grün/Blau:
 Sumada $1,000
 Ofenkartoffeln $2,000

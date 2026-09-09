@@ -14,14 +14,14 @@ none:{
   Gyros:{low:2000,medium:4500,high:6000}
 },
 doj:{
-  Ofenkartoffeln:{low:2000,medium:2000,high:3000},
-  Sumada:{low:1000,medium:1000,high:2000},
-  Gyros:{low:3500,medium:3500,high:5000}
+  Ofenkartoffeln:{low:1200,medium:2000,high:3000},
+  Sumada:{low:800,medium:1000,high:2000},
+  Gyros:{low:2000,medium:3500,high:5000}
 },
 lspd:{
-  Ofenkartoffeln:{low:2000,medium:2000,high:3000},
-  Sumada:{low:1000,medium:1000,high:2000},
-  Gyros:{low:3500,medium:3500,high:5000}
+  Ofenkartoffeln:{low:1200,medium:2000,high:3000},
+  Sumada:{low:800,medium:1000,high:2000},
+  Gyros:{low:2000,medium:3500,high:5000}
 }
 };
 const recipeEl=document.getElementById("recipe"),coopEl=document.getElementById("coop"),lowEl=document.getElementById("lowCount"),mediumEl=document.getElementById("mediumCount"),highEl=document.getElementById("highCount");
