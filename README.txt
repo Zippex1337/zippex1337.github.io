@@ -1,26 +1,23 @@
 Mizuki Essen – Discord Rezeptrechner
 
-Zutatenpreise:
-Wasser $250
-Milch $350
-Weizen $180
-Butter $240
-Salz $200
-Ei $320
-
 Coop:
-Keine = normale Verkaufspreise
-DOJ und LSPD:
-Grau = normale Preise.
-Grün/Blau:
-Sumada $1,000
-Ofenkartoffeln $2,000
-Gyros $3,500
+Keine:
+- Sumada: Grau $800 | Grün/Blau $2,000 | Lila/Gold $3,000
+- Ofenkartoffeln: Grau $1,200 | Grün/Blau $3,000 | Lila/Gold $4,000
+- Gyros: Grau $2,000 | Grün/Blau $4,500 | Lila/Gold $6,000
 
-Lila/Gold:
-Sumada $2,000
-Ofenkartoffeln $3,000
-Gyros $5,000
+DOJ:
+- Grau: Sumada $800 | Ofenkartoffeln $1,200 | Gyros $2,000
+- Grün: Sumada $1,000 | Ofenkartoffeln $2,000 | Gyros $3,500
+- Blau: Sumada $1,000 | Ofenkartoffeln $2,000 | Gyros $3,500
+- Lila: Sumada $2,000 | Ofenkartoffeln $3,000 | Gyros $5,000
+- Gold: Sumada $2,000 | Ofenkartoffeln $3,000 | Gyros $5,000
 
-Der Mengenrabatt (20=5%, 40=10%, 60=15%, 80=20%, 100+=25%) wird auf den VERKAUFSPREIS angewendet.
-Der Verkauf nach Rabatt und der Gesamtgewinn werden separat angezeigt.
+LSPD:
+- Grau: Sumada $800 | Ofenkartoffeln $1,200 | Gyros $2,000
+- Grün: Sumada $1,000 | Ofenkartoffeln $2,000 | Gyros $3,500
+- Blau: Sumada $1,000 | Ofenkartoffeln $2,000 | Gyros $3,500
+- Lila: Sumada $2,000 | Ofenkartoffeln $3,000 | Gyros $5,000
+- Gold: Sumada $2,000 | Ofenkartoffeln $3,000 | Gyros $5,000
+
+Der Mengenrabatt (20=5%, 40=10%, 60=15%, 80=20%, 100+=25%) wird auf den Verkaufspreis angewendet.
