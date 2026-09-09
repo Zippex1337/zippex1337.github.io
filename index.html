@@ -2,46 +2,95 @@
 <html lang="de">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#2a1117">
   <title>Mizuki Essen – Rezeptrechner</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="app">
-    <header>
-      <div>
-        <div class="eyebrow">MIZUKI ESSEN</div>
-        <h1>Rezeptrechner</h1>
-        <p>Rezepte, Zutaten, Einkaufskosten und Verkaufserlöse auf einen Blick.</p>
-      </div>
-    </header>
+  <div class="ambient"></div>
+  <main class="app-shell">
+    <section class="app-card">
+      <header class="hero">
+        <div class="torii-mark" aria-hidden="true">⛩</div>
+        <h1>Mizuki Essen</h1>
+        <div class="subtitle">REZEPTRECHNER</div>
+        <div class="jp">美味しい食事</div>
+        <p>Berechne Zutaten, Einkauf, Verkauf und Gewinn anhand deiner vorhandenen Qualitätsmengen.</p>
+      </header>
 
-    <section class="panel">
-      <label for="recipe">Rezept</label>
-      <select id="recipe"></select>
+      <section class="form-row">
+        <div class="field recipe-field">
+          <label for="recipe">Rezept auswählen</label>
+          <select id="recipe"></select>
+        </div>
+        <div class="total-box">
+          <span>GESAMT</span>
+          <strong id="totalQuantity">0 Stück</strong>
+        </div>
+      </section>
 
-      <label for="quantity">Menge</label>
-      <select id="quantity"></select>
+      <section class="quality-input-panel">
+        <div class="quality-input-title">Wie viele Gerichte hast du?</div>
+        <div class="quality-input-grid">
+          <label class="quality-input low">
+            <span class="quality-dot"></span>
+            <span class="quality-name">Grau</span>
+            <small>Niedrige Qualität</small>
+            <input id="lowCount" type="number" min="0" max="9999" step="1" value="0" inputmode="numeric">
+          </label>
+
+          <label class="quality-input medium">
+            <span class="quality-dot"></span>
+            <span class="quality-name">Grün / Blau</span>
+            <small>Mittlere Qualität</small>
+            <input id="mediumCount" type="number" min="0" max="9999" step="1" value="0" inputmode="numeric">
+          </label>
+
+          <label class="quality-input high">
+            <span class="quality-dot"></span>
+            <span class="quality-name">Lila / Gold</span>
+            <small>Hohe Qualität</small>
+            <input id="highCount" type="number" min="0" max="9999" step="1" value="0" inputmode="numeric">
+          </label>
+        </div>
+      </section>
+
+      <button id="calculateButton" class="calculate" type="button">
+        <span class="bowl" aria-hidden="true">🍜</span>
+        <span>ALLES BERECHNEN</span>
+      </button>
+
+      <section id="resultsPanel" class="results-panel" aria-live="polite">
+        <div class="results-heading">Deine Berechnung</div>
+        <div id="ingredients" class="ingredients"></div>
+
+        <div class="quality-title">Verkauf nach Qualität</div>
+        <div class="sale-breakdown">
+          <div class="sale-row"><span>Grau × <b id="lowDisplay">0</b></span><strong id="lowRevenue">$0</strong></div>
+          <div class="sale-row"><span>Grün / Blau × <b id="mediumDisplay">0</b></span><strong id="mediumRevenue">$0</strong></div>
+          <div class="sale-row"><span>Lila / Gold × <b id="highDisplay">0</b></span><strong id="highRevenue">$0</strong></div>
+        </div>
+
+        <div class="result-grid">
+          <div class="result"><span>Einkauf</span><strong id="cost">$0</strong></div>
+          <div class="result"><span>Verkauf</span><strong id="revenue">$0</strong></div>
+          <div class="result profit"><span>Gewinn</span><strong id="profit">$0</strong></div>
+        </div>
+        <p id="discountInfo" class="discount">Kein Mengenrabatt – 0 Stück</p>
+      </section>
+
+      <section class="features">
+        <div class="feature"><div class="feature-icon">◌</div><strong>Einfach</strong><span>Qualitäten eintragen<br>alles automatisch berechnet</span></div>
+        <div class="feature"><div class="feature-icon">♨</div><strong>Schnell</strong><span>Zutaten und Preise<br>sofort aktualisiert</span></div>
+        <div class="feature"><div class="feature-icon">♡</div><strong>Lecker</strong><span>Mehr Zeit für<br>das Wesentliche</span></div>
+      </section>
+
+      <footer>
+        <div class="tagline">Good Food&nbsp;&nbsp; Good Mood <span>♥</span></div>
+        <div class="itadakimasu">—&nbsp;&nbsp;いただきます&nbsp;&nbsp;—</div>
+      </footer>
     </section>
-
-    <section class="panel">
-      <div class="section-title">Qualität / Verkaufspreis</div>
-      <div id="qualityButtons" class="quality-grid"></div>
-    </section>
-
-    <section class="panel">
-      <div class="section-title">Benötigte Zutaten</div>
-      <div id="ingredients" class="ingredients"></div>
-    </section>
-
-    <section class="results">
-      <div class="result"><span>Einkaufskosten</span><strong id="cost">$0</strong></div>
-      <div class="result"><span>Verkaufserlös</span><strong id="revenue">$0</strong></div>
-      <div class="result highlight"><span>Gewinn</span><strong id="profit">$0</strong></div>
-    </section>
-
-    <p id="discountInfo" class="discount"></p>
-    <p class="note">Mengenrabatt: 20× = 5%, 40× = 10%, 60× = 15%, 80× = 20%, ab 100× = 25%.</p>
   </main>
   <script src="app.js"></script>
 </body>
