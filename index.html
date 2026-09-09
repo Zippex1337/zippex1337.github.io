@@ -1,100 +1,45 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#17090d">
-  <title>Mizuki Essen – Rezeptrechner</title>
-  <link rel="stylesheet" href="style.css?v=4">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mizuki Essen – Rezeptrechner</title>
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
-  <main class="app-shell">
-    <section class="app-card">
-      <header class="hero">
-        <div class="brand">Mizuki Essen</div>
-        <div class="subtitle">REZEPTRECHNER</div>
-        <div class="jp">美味しい食事</div>
-        <p>Berechne Zutaten, Einkauf, Verkauf und Gewinn anhand deiner vorhandenen Qualitätsmengen.</p>
-      </header>
-
-      <section class="form-section">
-        <label class="label" for="recipe">Rezept auswählen</label>
-        <select id="recipe"></select>
-      </section>
-
-      <section class="quality-section">
-        <div class="section-title">Wie viele Gerichte hast du?</div>
-        <div class="quality-grid">
-          <label class="quality-card low">
-            <span class="quality-name">Grau</span>
-            <span class="quality-desc">Niedrige Qualität</span>
-            <input id="lowCount" type="number" min="0" max="9999" step="1" value="0" inputmode="numeric">
-          </label>
-
-          <label class="quality-card medium">
-            <span class="quality-name">Grün / Blau</span>
-            <span class="quality-desc">Mittlere Qualität</span>
-            <input id="mediumCount" type="number" min="0" max="9999" step="1" value="0" inputmode="numeric">
-          </label>
-
-          <label class="quality-card high">
-            <span class="quality-name">Lila / Gold</span>
-            <span class="quality-desc">Hohe Qualität</span>
-            <input id="highCount" type="number" min="0" max="9999" step="1" value="0" inputmode="numeric">
-          </label>
-        </div>
-
-        <div class="total-line">
-          <span>Gesamtmenge</span>
-          <strong id="totalQuantity">0 Stück</strong>
-        </div>
-      </section>
-
-      <section class="results">
-        <div class="section-title">Deine Berechnung</div>
-
-        <div class="result-columns">
-          <div class="result-box">
-            <h3>Benötigte Zutaten</h3>
-            <div id="ingredients"></div>
-          </div>
-
-          <div class="result-box">
-            <h3>Kosten & Rabatt</h3>
-            <div class="line"><span>Einkauf ohne Rabatt</span><strong id="costBefore">$0</strong></div>
-            <div class="line"><span>Mengenrabatt</span><strong id="discount">0 %</strong></div>
-            <div class="line"><span>Einkauf mit Rabatt</span><strong id="cost">$0</strong></div>
-          </div>
-
-          <div class="result-box">
-            <h3>Verkauf nach Qualität</h3>
-            <div class="line"><span>Grau (niedrig)</span><strong id="lowRevenue">$0</strong></div>
-            <div class="line"><span>Grün / Blau (mittel)</span><strong id="mediumRevenue">$0</strong></div>
-            <div class="line"><span>Lila / Gold (hoch)</span><strong id="highRevenue">$0</strong></div>
-            <div class="line total-sale"><span>Gesamtverkauf</span><strong id="revenue">$0</strong></div>
-          </div>
-        </div>
-
-        <div class="profit-line">
-          <span>Gesamtgewinn</span>
-          <strong id="profit">$0</strong>
-        </div>
-
-        <p id="discountInfo" class="discount-info">Kein Mengenrabatt</p>
-      </section>
-
-      <button id="resetButton" class="reset-button" type="button">
-        ZURÜCKSETZEN
-        <small>Alle Eingaben zurücksetzen</small>
-      </button>
-
-      <footer>
-        <div>Good Food&nbsp;&nbsp; Good Mood&nbsp;&nbsp; Good People</div>
-        <div class="footer-jp">いただきます</div>
-      </footer>
-    </section>
-  </main>
-
-  <script src="app.js?v=4"></script>
-</body>
-</html>
+<main class="app-shell"><section class="app-card">
+<header class="hero">
+<div class="brand">Mizuki Essen</div><div class="subtitle">REZEPTRECHNER</div><div class="jp">美味しい食事</div>
+<p>Berechne Zutaten, Einkauf, Verkauf und Gewinn anhand deiner vorhandenen Qualitätsmengen.</p>
+</header>
+<section class="form-section"><label class="label" for="recipe">Rezept auswählen</label><select id="recipe"></select></section>
+<section class="quality-section">
+<div class="section-title">Wie viele Gerichte hast du?</div>
+<div class="quality-grid">
+<label class="quality-card low"><span class="quality-name">Grau</span><span class="quality-desc">Niedrige Qualität</span><input id="lowCount" type="number" min="0" max="9999" value="0"></label>
+<label class="quality-card medium"><span class="quality-name">Grün / Blau</span><span class="quality-desc">Mittlere Qualität</span><input id="mediumCount" type="number" min="0" max="9999" value="0"></label>
+<label class="quality-card high"><span class="quality-name">Lila / Gold</span><span class="quality-desc">Hohe Qualität</span><input id="highCount" type="number" min="0" max="9999" value="0"></label>
+</div>
+<div class="total-line"><span>Gesamtmenge</span><strong id="totalQuantity">0 Stück</strong></div>
+</section>
+<section class="results"><div class="section-title">Deine Berechnung</div>
+<div class="result-columns">
+<div class="result-box"><h3>Benötigte Zutaten</h3><div id="ingredients"></div></div>
+<div class="result-box"><h3>Kosten & Rabatt</h3>
+<div class="line"><span>Einkaufskosten</span><strong id="costBefore">$0</strong></div>
+<div class="line"><span>Verkaufsrabatt</span><strong id="discount">0 %</strong></div>
+<div class="line"><span>Verkauf nach Rabatt</span><strong id="revenue">$0</strong></div>
+</div>
+<div class="result-box"><h3>Verkauf nach Qualität</h3>
+<div class="line"><span>Grau (niedrig)</span><strong id="lowRevenue">$0</strong></div>
+<div class="line"><span>Grün / Blau (mittel)</span><strong id="mediumRevenue">$0</strong></div>
+<div class="line"><span>Lila / Gold (hoch)</span><strong id="highRevenue">$0</strong></div>
+<div class="line total-sale"><span>Gesamtverkauf</span><strong id="revenueTotal">$0</strong></div>
+</div></div>
+<div class="profit-line"><span>Gesamtgewinn</span><strong id="profit">$0</strong></div>
+<p id="discountInfo" class="discount-info">Kein Mengenrabatt</p>
+</section>
+<button id="resetButton" class="reset-button" type="button">ZURÜCKSETZEN<small>Alle Eingaben zurücksetzen</small></button>
+<footer><div>Good Food&nbsp;&nbsp; Good Mood&nbsp;&nbsp; Good People</div><div class="footer-jp">いただきます</div></footer>
+</section></main>
+<script src="app.js?v=5"></script>
+</body></html>

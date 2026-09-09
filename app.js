@@ -1,103 +1,34 @@
-const RECIPES = {
-  "Ofenkartoffeln": {
-    ingredients: {"Wasser": 2, "Salz": 1, "Ei": 1},
-    purchase: 600,
-    sale: {low: 1200, medium: 3000, high: 4000}
-  },
-  "Sumada": {
-    ingredients: {"Wasser": 1, "Milch": 1},
-    purchase: 165,
-    sale: {low: 800, medium: 2000, high: 3000}
-  },
-  "Gyros": {
-    ingredients: {"Gegrilltes Fleisch": 2, "Butter": 2, "Weizen": 1},
-    purchase: 900,
-    sale: {low: 2000, medium: 4500, high: 6000}
-  }
+const INGREDIENT_PRICES={
+"Wasser":250,"Milch":350,"Weizen":180,"Butter":240,"Salz":200,"Ei":320,"Gegrilltes Fleisch":0
 };
-
-const recipeEl = document.getElementById("recipe");
-const lowEl = document.getElementById("lowCount");
-const mediumEl = document.getElementById("mediumCount");
-const highEl = document.getElementById("highCount");
-
-Object.keys(RECIPES).forEach(name => {
-  const option = document.createElement("option");
-  option.value = name;
-  option.textContent = name;
-  recipeEl.appendChild(option);
-});
-
-function getCount(element) {
-  const n = Math.floor(Number(element.value) || 0);
-  return Math.max(0, Math.min(9999, n));
+const RECIPES={
+"Ofenkartoffeln":{ingredients:{"Wasser":2,"Salz":1,"Ei":1},sale:{low:1200,medium:3000,high:4000}},
+"Sumada":{ingredients:{"Wasser":1,"Milch":1},sale:{low:800,medium:2000,high:3000}},
+"Gyros":{ingredients:{"Gegrilltes Fleisch":2,"Butter":2,"Weizen":1},sale:{low:2000,medium:4500,high:6000}}
+};
+const recipeEl=document.getElementById("recipe"),lowEl=document.getElementById("lowCount"),mediumEl=document.getElementById("mediumCount"),highEl=document.getElementById("highCount");
+Object.keys(RECIPES).forEach(n=>{const o=document.createElement("option");o.value=n;o.textContent=n;recipeEl.appendChild(o)});
+function count(e){return Math.max(0,Math.min(9999,Math.floor(Number(e.value)||0)))}
+function disc(q){return Math.min(25,Math.floor(q/20)*5)}
+function money(v){return "$"+Math.round(v).toLocaleString("de-DE")}
+function calculate(){
+const r=RECIPES[recipeEl.value],low=count(lowEl),medium=count(mediumEl),high=count(highEl),total=low+medium+high,d=disc(total);
+document.getElementById("totalQuantity").textContent=total+" Stück";
+const ing=document.getElementById("ingredients");ing.innerHTML="";
+Object.entries(r.ingredients).forEach(([n,a])=>{const row=document.createElement("div");row.className="ingredient-line";row.innerHTML=`<span>${n}</span><strong>${a*total}×</strong>`;ing.appendChild(row)});
+const cost=Object.entries(r.ingredients).reduce((s,[n,a])=>s+a*(INGREDIENT_PRICES[n]??0),0)*total;
+const lowBefore=r.sale.low*low,medBefore=r.sale.medium*medium,highBefore=r.sale.high*high,salesBefore=lowBefore+medBefore+highBefore;
+const factor=1-d/100,sales=salesBefore*factor,profit=sales-cost;
+document.getElementById("costBefore").textContent=money(cost);
+document.getElementById("discount").textContent=d+" %";
+document.getElementById("revenue").textContent=money(sales);
+document.getElementById("revenueTotal").textContent=money(sales);
+document.getElementById("lowRevenue").textContent=money(lowBefore*factor);
+document.getElementById("mediumRevenue").textContent=money(medBefore*factor);
+document.getElementById("highRevenue").textContent=money(highBefore*factor);
+document.getElementById("profit").textContent=money(profit);
+document.getElementById("discountInfo").textContent=d?`Mengenrabatt: ${d}% auf den Verkaufspreis bei ${total} Stück`:`Kein Mengenrabatt bei ${total} Stück`;
 }
-
-function getDiscount(quantity) {
-  return Math.min(25, Math.floor(quantity / 20) * 5);
-}
-
-function money(value) {
-  return "$" + Math.round(value).toLocaleString("de-DE");
-}
-
-function calculate() {
-  const recipe = RECIPES[recipeEl.value];
-  const low = getCount(lowEl);
-  const medium = getCount(mediumEl);
-  const high = getCount(highEl);
-  const total = low + medium + high;
-  const discount = getDiscount(total);
-
-  document.getElementById("totalQuantity").textContent = total + " Stück";
-
-  const ingredients = document.getElementById("ingredients");
-  ingredients.innerHTML = "";
-
-  Object.entries(recipe.ingredients).forEach(([name, amount]) => {
-    const row = document.createElement("div");
-    row.className = "ingredient-line";
-    row.innerHTML = `<span>${name}</span><strong>${amount * total}×</strong>`;
-    ingredients.appendChild(row);
-  });
-
-  const costBefore = recipe.purchase * total;
-  const cost = costBefore * (1 - discount / 100);
-
-  const lowRevenue = recipe.sale.low * low;
-  const mediumRevenue = recipe.sale.medium * medium;
-  const highRevenue = recipe.sale.high * high;
-  const revenue = lowRevenue + mediumRevenue + highRevenue;
-  const profit = revenue - cost;
-
-  document.getElementById("costBefore").textContent = money(costBefore);
-  document.getElementById("discount").textContent = discount + " %";
-  document.getElementById("cost").textContent = money(cost);
-
-  document.getElementById("lowRevenue").textContent = money(lowRevenue);
-  document.getElementById("mediumRevenue").textContent = money(mediumRevenue);
-  document.getElementById("highRevenue").textContent = money(highRevenue);
-  document.getElementById("revenue").textContent = money(revenue);
-  document.getElementById("profit").textContent = money(profit);
-
-  document.getElementById("discountInfo").textContent = discount
-    ? `Mengenrabatt: ${discount}% bei ${total} Stück`
-    : `Kein Mengenrabatt bei ${total} Stück`;
-}
-
-function resetAll() {
-  recipeEl.selectedIndex = 0;
-  lowEl.value = 0;
-  mediumEl.value = 0;
-  highEl.value = 0;
-  calculate();
-}
-
-[recipeEl, lowEl, mediumEl, highEl].forEach(element => {
-  element.addEventListener("input", calculate);
-  element.addEventListener("change", calculate);
-});
-
-document.getElementById("resetButton").addEventListener("click", resetAll);
-
-calculate();
+function resetAll(){recipeEl.selectedIndex=0;lowEl.value=0;mediumEl.value=0;highEl.value=0;calculate()}
+[recipeEl,lowEl,mediumEl,highEl].forEach(e=>{e.addEventListener("input",calculate);e.addEventListener("change",calculate)});
+document.getElementById("resetButton").addEventListener("click",resetAll);calculate();
