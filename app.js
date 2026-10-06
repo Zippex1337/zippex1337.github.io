@@ -1,4 +1,4 @@
-const INGREDIENT_PRICES={"Wasser":250,"Milch":350,"Weizen":180,"Butter":240,"Salz":200,"Ei":320,"Gegrilltes Fleisch":120};
+const INGREDIENT_PRICES={"Wasser":250,"Milch":350,"Weizen":180,"Butter":240,"Salz":200,"Ei":320,"Gegrilltes Fleisch":500};
 const RECIPES={potatoes:{ingredients:{"Wasser":2,"Salz":1,"Ei":1}},sumada:{ingredients:{"Wasser":1,"Milch":1}},gyros:{ingredients:{"Gegrilltes Fleisch":2,"Butter":2,"Weizen":1}}};
 const COOP={
 none:{potatoes:{low:1200,medium:3000,high:4000},sumada:{low:800,medium:2000,high:3000},gyros:{low:2000,medium:4500,high:6000}},
