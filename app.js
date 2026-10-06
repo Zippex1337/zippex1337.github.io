@@ -1,5 +1,5 @@
 const INGREDIENT_PRICES={
-"Wasser":250,"Milch":350,"Weizen":180,"Butter":240,"Salz":200,"Ei":320,"Gegrilltes Fleisch":0
+"Wasser":250,"Milch":350,"Weizen":180,"Butter":240,"Salz":200,"Ei":320,"Gegrilltes Fleisch":500
 };
 const RECIPES={
 "Ofenkartoffeln":{ingredients:{"Wasser":2,"Salz":1,"Ei":1},sale:{low:1200,medium:3000,high:4000}},
