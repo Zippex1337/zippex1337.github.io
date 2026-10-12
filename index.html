@@ -288,9 +288,10 @@ h1 span {
 .info {
     width: min(100%, 1050px);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 12px;
     margin-top: 25px;
     padding: 18px 21px;
     border: 1px solid rgba(156, 89, 230, .22);
@@ -298,6 +299,13 @@ h1 span {
     background: rgba(18, 11, 27, .78);
     backdrop-filter: blur(12px);
     animation: fadeIn 1.3s ease both;
+}
+.character {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
 }
 
 .info-label {
@@ -336,22 +344,24 @@ h1 span {
     box-shadow: 0 0 10px #a86aff;
     animation: pulse 2s infinite;
 }
-    .status-dot2 {
+   .status-dot2,
+.status-dot3 {
+    display: inline-block;
+    flex-shrink: 0;
     width: 7px;
     height: 7px;
     border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+.status-dot2 {
     background: #ffbb00;
     box-shadow: 0 0 10px #ffbb00;
-    animation: pulse 2s infinite;
 }
-}
-    .status-dot3 {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
+
+.status-dot3 {
     background: #00ff2a;
     box-shadow: 0 0 10px #00ff2a;
-    animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
@@ -484,7 +494,10 @@ footer span {
         </div>
     </section>
 
-    <section class="info">
+<section class="info">
+
+    <!-- Erster Charakter: Paco -->
+    <div class="character">
         <div>
             <p class="info-label">Aktueller Systemstatus</p>
             <p class="info-title">Paco Hernandez</p>
@@ -494,8 +507,12 @@ footer span {
             <span class="status-dot2"></span>
             PAUSED
         </div>
-        <br>
+    </div>
+
+    <!-- Zweiter Charakter -->
+    <div class="character">
         <div>
+            <p class="info-label">Zweit Char</p>
             <p class="info-title">Zweit Char</p>
         </div>
 
@@ -503,7 +520,9 @@ footer span {
             <span class="status-dot3"></span>
             ACTIVE
         </div>
-    </section>
+    </div>
+
+</section>
 <!--
    <section class="info">
         <div>
